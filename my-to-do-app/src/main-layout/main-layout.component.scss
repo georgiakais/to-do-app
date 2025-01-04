@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;  // Full viewport height
+}
+
+.content-wrapper {
+  flex: 1;  // Fills the space between header and footer
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  // Center the content vertically
+  overflow: hidden;  // No scrolling
+}

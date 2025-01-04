@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="logo" [routerLink]="'/'">  <!-- Directly use routerLink without <a> -->
+    <img src="logo.png" alt="My To-Do App" width="40" >
+    <span>My To-Do App</span>
+  </div>
+
+  <nav class="nav-links" [class.active]="menuOpen">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/tasks">My Tasks</a>
+    <a routerLink="/completed">Completed Tasks</a>
+  </nav>
+
+  <div class="actions">
+    <button class="btn">+ Add Task</button>
+    <img src="user-avatar.png" alt="User Profile" class="avatar" width="32">
+  </div>
+</header>
