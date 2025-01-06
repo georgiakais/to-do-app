@@ -11,7 +11,12 @@
   </nav>
 
   <div class="actions">
-    <button class="btn">+ Add Task</button>
-    <img src="user-avatar.png" alt="User Profile" class="avatar" width="32">
+    <!-- Add Task button with routerLink -->
+    <button class="btn" [routerLink]="'/add-task'">+ Add Task</button>
+  
+    <!-- Profile Icon -->
+    <div class="logo">
+      <img src="user-avatar.png" alt="User Profile" class="avatar" width="32">
+    </div>
   </div>
 </header>

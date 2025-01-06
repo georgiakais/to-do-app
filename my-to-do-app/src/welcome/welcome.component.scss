@@ -1,71 +1,55 @@
 .welcome-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 20px;
+  justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #007bff, #00b4d8);
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #4979a8, #00b4d8);
   color: white;
-  border-radius: 15px;
-  animation: fadeIn 1.5s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 100px; /* Add space from top */
+}
 
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
+h1 {
+  font-size: 2.5rem; /* Larger font size for the title */
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-  .quote {
-    font-size: 1.5rem;  // Increased font size for quotes
-    font-weight: bold;  // Make it bolder
-    line-height: 1;  // Add spacing between lines for readability
-    font-style: italic;
-    margin-bottom: 10px;
-    color: #ffffff;  // Soft gold color for a fancier look
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);  // Subtle shadow to make it pop
-    animation: slideUp 1.5s ease-in-out;
-  }
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-style: italic;
+}
 
-  .btn-primary {
-    background-color: white;
-    color: #007bff;
-    padding: 15px 30px;
-    font-size: 1.4rem;  // Slightly larger button text
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.btn-primary {
+  background-color: white;
+  color: #007bff;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 
-    &:hover {
-      background-color: #e6e6e6;
-      transform: scale(1.05);
-    }
+  &:hover {
+    background-color: #e6e6e6;
+    transform: scale(1.05);
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.welcome-container .quote {
+  font-size: 1.1rem; /* Adjust font size of the quote */
+  font-style: italic;
+  margin-bottom: 40px;
+  color: #ffecb3; /* Soft gold for the quote */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }

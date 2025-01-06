@@ -1,0 +1,51 @@
+<app-title [title]="'Add a New Task'"></app-title>
+<div class="add-task-container">
+  <form *ngIf="!taskAdded" [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <div class="form-group">
+      <label for="name">Task Name</label>
+      <input type="text" id="name" formControlName="name" placeholder="Enter task name">
+      <span *ngIf="taskForm.controls['name'].invalid && taskForm.controls['name'].touched">
+        Task name must be at least 3 characters.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input type="date" id="dueDate" formControlName="dueDate">
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option [value]="null" disabled selected>-- Select Priority --</option>
+        <option *ngFor="let priority of (priorities | keyvalue)" [value]="priority.value">
+          {{ priority.value | titlecase }}
+        </option>
+      </select>
+      <span *ngIf="taskForm.controls['priority'].invalid && taskForm.controls['priority'].touched">
+        Please select a priority.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description (Optional)</label>
+      <textarea id="description" formControlName="description" placeholder="Add extra details"></textarea>
+    </div>
+
+    <!-- Buttons aligned left and right -->
+    <div class="button-group">
+      <button type="submit" [disabled]="taskForm.invalid" class="btn-primary left-button">Add Task</button>
+      <button type="button" class="cancel-btn" (click)="goToTasks()">Cancel</button>
+    </div>
+  </form>
+
+<!-- Success Message -->
+<div *ngIf="taskAdded" class="success-message">
+  <h3>Your task was added successfully!</h3>
+  <p>If you want to see all your tasks, click the button below:</p>
+  <button class="btn-primary-small" (click)="goToTasks()">Go to Tasks</button>
+  <p>Or, if you want to add another task:</p>
+  <button class="btn-primary-small" (click)="addNew()">Add New Task!</button>
+</div>
+
+</div>

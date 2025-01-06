@@ -1,1 +1,15 @@
-<p>completed works!</p>
+<app-title [title]="'Completed Tasks'"></app-title>
+
+<div *ngIf="completedTasks.length === 0" class="no-tasks-message">
+  No completed tasks found.
+</div>
+
+<div *ngIf="completedTasks.length > 0" class="completed-task-list">
+  <div *ngFor="let task of completedTasks" class="task-item">
+    <h3>{{ task.name }}</h3>
+    <p><strong>Due Date:</strong> {{ task.dueDate | date }}</p>
+    <p><strong>Priority:</strong> {{ task.priority | titlecase }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Completed:</strong> {{ task.completed ? 'Yes' : 'No' }}</p>
+  </div>
+</div>

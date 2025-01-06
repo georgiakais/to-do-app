@@ -1,1 +1,50 @@
-<p>tasks works!</p>
+<app-title [title]="'Tasks'"></app-title>
+
+<div class="tasks-container">
+  <!-- Message when no tasks are available -->
+  <div *ngIf="tasks.length === 0" class="no-tasks-message">
+    <p>No tasks available. Add a new task to get started!</p>
+    <button routerLink="/add-task" class="btn-primary">+ Add Task</button>
+  </div>
+
+  <!-- Task list when tasks are available -->
+  <div *ngIf="tasks.length > 0" class="task-list">
+    <div
+      class="task-item"
+      *ngFor="
+        let task of tasks
+          | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize
+      "
+    >
+      <h3>{{ task.name }}</h3>
+      <p><strong>Due Date:</strong> {{ task.dueDate | date }}</p>
+      <p><strong>Priority:</strong> {{ task.priority | titlecase }}</p>
+      <p><strong>Description:</strong> {{ task.description }}</p>
+      <p>
+        <strong>
+          Mark as Completed:
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="task.completed"
+              (change)="onTaskCompletion(task)"
+            /> </label
+        ></strong>
+      </p>
+      <div class="task-actions">
+        <button class="btn-edit" (click)="editTask(task)">Edit</button>
+        <button class="btn-delete" (click)="deleteTask(task)">Delete</button>
+    </div>
+    </div>
+  </div>
+
+  <!-- Paginator Component -->
+  <mat-paginator
+    class="mat-paginator"
+    [length]="tasks.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>
